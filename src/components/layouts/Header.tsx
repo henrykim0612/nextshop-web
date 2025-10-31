@@ -21,8 +21,11 @@ import {
   ShoppingBagIcon,
   XMarkIcon,
 } from '@heroicons/react/24/outline';
+import Link from 'next/link';
+import Image from 'next/image';
+import { useRouter } from 'next/navigation';
 
-const navigation = {
+const header = {
   categories: [
     {
       id: 'women',
@@ -150,13 +153,14 @@ const navigation = {
   ],
 };
 
-export default function Navigation() {
-  const [open, setOpen] = useState(false);
+export default function Header() {
+  const [openMobileMenu, setOpenMobileMenu] = useState(false);
+  const router = useRouter();
 
   return (
     <div className="bg-white">
       {/* Mobile menu */}
-      <Dialog open={open} onClose={setOpen} className="relative z-40 lg:hidden">
+      <Dialog open={openMobileMenu} onClose={setOpenMobileMenu} className="relative z-40 lg:hidden">
         <DialogBackdrop
           transition
           className="fixed inset-0 bg-black/25 transition-opacity duration-300 ease-linear data-closed:opacity-0"
@@ -169,7 +173,7 @@ export default function Navigation() {
             <div className="flex px-4 pt-5 pb-2">
               <button
                 type="button"
-                onClick={() => setOpen(false)}
+                onClick={() => setOpenMobileMenu(false)}
                 className="relative -m-2 inline-flex items-center justify-center rounded-md p-2 text-gray-400"
               >
                 <span className="absolute -inset-0.5" />
@@ -182,7 +186,7 @@ export default function Navigation() {
             <TabGroup className="mt-2">
               <div className="border-b border-gray-200">
                 <TabList className="-mb-px flex space-x-8 px-4">
-                  {navigation.categories.map((category) => (
+                  {header.categories.map((category) => (
                     <Tab
                       key={category.name}
                       className="flex-1 border-b-2 border-transparent px-1 py-4 text-base font-medium whitespace-nowrap text-gray-900 data-selected:border-indigo-600 data-selected:text-indigo-600"
@@ -193,14 +197,21 @@ export default function Navigation() {
                 </TabList>
               </div>
               <TabPanels as={Fragment}>
-                {navigation.categories.map((category) => (
+                {header.categories.map((category) => (
                   <TabPanel key={category.name} className="space-y-10 px-4 pt-10 pb-8">
                     <div className="grid grid-cols-2 gap-x-4">
                       {category.featured.map((item) => (
                         <div key={item.name} className="group relative text-sm">
-                          <img
-                            alt={item.imageAlt}
+                          {/*<img*/}
+                          {/*  alt={item.imageAlt}*/}
+                          {/*  src={item.imageSrc}*/}
+                          {/*  className="aspect-square w-full rounded-lg bg-gray-100 object-cover group-hover:opacity-75"*/}
+                          {/*/>*/}
+                          <Image
                             src={item.imageSrc}
+                            alt={item.imageAlt}
+                            width={500}
+                            height={500}
                             className="aspect-square w-full rounded-lg bg-gray-100 object-cover group-hover:opacity-75"
                           />
                           <a href={item.href} className="mt-6 block font-medium text-gray-900">
@@ -228,9 +239,12 @@ export default function Navigation() {
                         >
                           {section.items.map((item) => (
                             <li key={item.name} className="flow-root">
-                              <a href={item.href} className="-m-2 block p-2 text-gray-500">
+                              {/*<a href={item.href} className="-m-2 block p-2 text-gray-500">*/}
+                              {/*  {item.name}*/}
+                              {/*</a>*/}
+                              <Link href={item.href} className="-m-2 block p-2 text-gray-500">
                                 {item.name}
-                              </a>
+                              </Link>
                             </li>
                           ))}
                         </ul>
@@ -242,7 +256,7 @@ export default function Navigation() {
             </TabGroup>
 
             <div className="space-y-6 border-t border-gray-200 px-4 py-6">
-              {navigation.pages.map((page) => (
+              {header.pages.map((page) => (
                 <div key={page.name} className="flow-root">
                   <a href={page.href} className="-m-2 block p-2 font-medium text-gray-900">
                     {page.name}
@@ -263,32 +277,21 @@ export default function Navigation() {
                 </a>
               </div>
             </div>
-
-            <div className="border-t border-gray-200 px-4 py-6">
-              <a href="#" className="-m-2 flex items-center p-2">
-                <img
-                  alt=""
-                  src="https://tailwindcss.com/plus-assets/img/flags/flag-canada.svg"
-                  className="block h-auto w-5 shrink-0"
-                />
-                <span className="ml-3 block text-base font-medium text-gray-900">CAD</span>
-                <span className="sr-only">, change currency</span>
-              </a>
-            </div>
           </DialogPanel>
         </div>
       </Dialog>
+
       <header className="relative bg-white">
-        <p className="flex h-10 items-center justify-center bg-indigo-600 px-4 text-sm font-medium text-white sm:px-6 lg:px-8">
+        <p className="flex h-10 items-center justify-center bg-indigo-600 px-4 text-sm font-medium text-white">
           Get free delivery on orders over $100
         </p>
 
-        <nav aria-label="Top" className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
+        <nav aria-label="Top" className="mx-auto">
           <div className="border-b border-gray-200">
             <div className="flex h-16 items-center">
               <button
                 type="button"
-                onClick={() => setOpen(true)}
+                onClick={() => setOpenMobileMenu(true)}
                 className="relative rounded-md bg-white p-2 text-gray-400 lg:hidden"
               >
                 <span className="absolute -inset-0.5" />
@@ -297,20 +300,29 @@ export default function Navigation() {
               </button>
 
               {/* Logo */}
-              <div className="ml-4 flex lg:ml-0">
-                <a href="#">
+              <div className="ml-2 flex lg:ml-0">
+                <Link href={'/'}>
                   <span className="sr-only">Your Company</span>
-                  <img alt="" src="/logo.svg" className="h-16 w-auto" />
-                </a>
+                  <Image
+                    src={'/logo.svg'}
+                    alt={'Logo'}
+                    width={0}
+                    height={64}
+                    className="h-16 w-auto"
+                    priority
+                  />
+                  {/*<img alt="" src="/logo.svg" className="h-16 w-auto" />*/}
+                </Link>
               </div>
 
               {/* Flyout menus */}
               <PopoverGroup className="hidden lg:ml-8 lg:block lg:self-stretch">
                 <div className="flex h-full space-x-8">
-                  {navigation.categories.map((category) => (
+                  {header.categories.map((category) => (
                     <Popover key={category.name} className="flex">
                       <div className="relative flex">
-                        <PopoverButton className="group relative flex items-center justify-center text-sm font-medium text-gray-700 transition-colors duration-200 ease-out hover:text-gray-800 data-open:text-indigo-600">
+                        <PopoverButton
+                          className="group relative flex items-center justify-center text-sm font-medium text-gray-700 transition-colors duration-200 ease-out hover:text-gray-800 data-open:text-indigo-600 cursor-pointer">
                           {category.name}
                           <span
                             aria-hidden="true"
@@ -330,31 +342,7 @@ export default function Navigation() {
                         <div className="relative bg-white">
                           <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
                             <div className="grid grid-cols-2 gap-x-8 gap-y-10 py-16">
-                              <div className="col-start-2 grid grid-cols-2 gap-x-8">
-                                {category.featured.map((item) => (
-                                  <div
-                                    key={item.name}
-                                    className="group relative text-base sm:text-sm"
-                                  >
-                                    <img
-                                      alt={item.imageAlt}
-                                      src={item.imageSrc}
-                                      className="aspect-square w-full rounded-lg bg-gray-100 object-cover group-hover:opacity-75"
-                                    />
-                                    <a
-                                      href={item.href}
-                                      className="mt-6 block font-medium text-gray-900"
-                                    >
-                                      <span aria-hidden="true" className="absolute inset-0 z-10" />
-                                      {item.name}
-                                    </a>
-                                    <p aria-hidden="true" className="mt-1">
-                                      Shop now
-                                    </p>
-                                  </div>
-                                ))}
-                              </div>
-                              <div className="row-start-1 grid grid-cols-3 gap-x-8 gap-y-10 text-sm">
+                              <div className="grid grid-cols-3 gap-x-8 gap-y-10 text-sm">
                                 {category.sections.map((section) => (
                                   <div key={section.name}>
                                     <p
@@ -370,12 +358,51 @@ export default function Navigation() {
                                     >
                                       {section.items.map((item) => (
                                         <li key={item.name} className="flex">
-                                          <a href={item.href} className="hover:text-gray-800">
+                                          <Link href={item.href} className="hover:text-gray-800">
                                             {item.name}
-                                          </a>
+                                          </Link>
+                                          {/*<a href={item.href} className="hover:text-gray-800">*/}
+                                          {/*  {item.name}*/}
+                                          {/*</a>*/}
                                         </li>
                                       ))}
                                     </ul>
+                                  </div>
+                                ))}
+                              </div>
+
+                              <div className="grid grid-cols-2 gap-x-8">
+                                {category.featured.map((item) => (
+                                  <div
+                                    key={item.name}
+                                    className="group relative text-base sm:text-sm cursor-pointer"
+                                    onClick={() => router.push('/')}
+                                  >
+                                    {/*<img*/}
+                                    {/*  alt={item.imageAlt}*/}
+                                    {/*  src={item.imageSrc}*/}
+                                    {/*  className="aspect-square w-full rounded-lg bg-gray-100 object-cover group-hover:opacity-75"*/}
+                                    {/*/>*/}
+                                    <Image
+                                      src={item.imageSrc}
+                                      alt={item.imageAlt}
+                                      width={500}
+                                      height={500}
+                                      className="aspect-square w-full rounded-lg bg-gray-100 object-cover group-hover:opacity-75"
+                                    />
+                                    {/*<a
+                                      href={item.href}
+                                      className="mt-6 block font-medium text-gray-900"
+                                    >
+                                      <span aria-hidden="true" className="absolute inset-0 z-10" />
+                                      {item.name}
+                                    </a>*/}
+                                    <p className="mt-6 block font-medium text-gray-900">
+                                      {item.name}
+                                    </p>
+                                    <p aria-hidden="true" className="mt-1">
+                                      Shop now
+                                    </p>
                                   </div>
                                 ))}
                               </div>
@@ -385,14 +412,14 @@ export default function Navigation() {
                       </PopoverPanel>
                     </Popover>
                   ))}
-                  {navigation.pages.map((page) => (
-                    <a
+                  {header.pages.map((page) => (
+                    <Link
                       key={page.name}
                       href={page.href}
                       className="flex items-center text-sm font-medium text-gray-700 hover:text-gray-800"
                     >
                       {page.name}
-                    </a>
+                    </Link>
                   ))}
                 </div>
               </PopoverGroup>
@@ -423,7 +450,7 @@ export default function Navigation() {
                       aria-hidden="true"
                       className="size-6 shrink-0 text-gray-400 group-hover:text-gray-500"
                     />
-                    <span className="ml-2 text-sm font-medium text-gray-700 group-hover:text-gray-800">
+                    <span className="mx-1 text-sm font-medium text-gray-700 group-hover:text-gray-800">
                       0
                     </span>
                     <span className="sr-only">items in cart, view bag</span>
