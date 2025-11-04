@@ -33,7 +33,7 @@ export default function Footer() {
       <h2 id="footer-heading" className="sr-only">
         Footer
       </h2>
-      <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
+      <div className="mx-auto px-4">
         <div className="py-20 xl:grid xl:grid-cols-3 xl:gap-8">
           <div className="grid grid-cols-2 gap-8 xl:col-span-2">
             <div className="space-y-16 md:grid md:grid-cols-2 md:gap-8 md:space-y-0">
@@ -92,7 +92,7 @@ export default function Footer() {
         </div>
 
         <div className="border-t border-gray-200 py-10">
-          <p className="text-sm text-gray-500">Copyright &copy; {new Date().getFullYear()} Your Company, Inc.</p>
+          <p className="text-sm text-gray-500">Copyright &copy; {new Date().getFullYear()} NextIT, Inc.</p>
         </div>
       </div>
     </footer>

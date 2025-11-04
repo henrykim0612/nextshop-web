@@ -22,7 +22,6 @@ import {
   XMarkIcon,
 } from '@heroicons/react/24/outline';
 import Link from 'next/link';
-import Image from 'next/image';
 import { useRouter } from 'next/navigation';
 
 const header = {
@@ -33,14 +32,14 @@ const header = {
       featured: [
         {
           name: 'New Arrivals',
-          href: '#',
+          href: '/products/woman',
           imageSrc:
             'https://tailwindcss.com/plus-assets/img/ecommerce-images/mega-menu-category-01.jpg',
           imageAlt: 'Models sitting back to back, wearing Basic Tee in black and bone.',
         },
         {
           name: 'Basic Tees',
-          href: '#',
+          href: '/products/woman',
           imageSrc:
             'https://tailwindcss.com/plus-assets/img/ecommerce-images/mega-menu-category-02.jpg',
           imageAlt:
@@ -52,38 +51,38 @@ const header = {
           id: 'clothing',
           name: 'Clothing',
           items: [
-            { name: 'Tops', href: '#' },
-            { name: 'Dresses', href: '#' },
-            { name: 'Pants', href: '#' },
-            { name: 'Denim', href: '#' },
-            { name: 'Sweaters', href: '#' },
-            { name: 'T-Shirts', href: '#' },
-            { name: 'Jackets', href: '#' },
-            { name: 'Activewear', href: '#' },
-            { name: 'Browse All', href: '#' },
+            { name: 'Tops', href: '/products/woman' },
+            { name: 'Dresses', href: '/products/woman' },
+            { name: 'Pants', href: '/products/woman' },
+            { name: 'Denim', href: '/products/woman' },
+            { name: 'Sweaters', href: '/products/woman' },
+            { name: 'T-Shirts', href: '/products/woman' },
+            { name: 'Jackets', href: '/products/woman' },
+            { name: 'Activewear', href: '/products/woman' },
+            { name: 'Browse All', href: '/products/woman' },
           ],
         },
         {
           id: 'accessories',
           name: 'Accessories',
           items: [
-            { name: 'Watches', href: '#' },
-            { name: 'Wallets', href: '#' },
-            { name: 'Bags', href: '#' },
-            { name: 'Sunglasses', href: '#' },
-            { name: 'Hats', href: '#' },
-            { name: 'Belts', href: '#' },
+            { name: 'Watches', href: '/products/woman' },
+            { name: 'Wallets', href: '/products/woman' },
+            { name: 'Bags', href: '/products/woman' },
+            { name: 'Sunglasses', href: '/products/woman' },
+            { name: 'Hats', href: '/products/woman' },
+            { name: 'Belts', href: '/products/woman' },
           ],
         },
         {
           id: 'brands',
           name: 'Brands',
           items: [
-            { name: 'Full Nelson', href: '#' },
-            { name: 'My Way', href: '#' },
-            { name: 'Re-Arranged', href: '#' },
-            { name: 'Counterfeit', href: '#' },
-            { name: 'Significant Other', href: '#' },
+            { name: 'Full Nelson', href: '/products/woman' },
+            { name: 'My Way', href: '/products/woman' },
+            { name: 'Re-Arranged', href: '/products/woman' },
+            { name: 'Counterfeit', href: '/products/woman' },
+            { name: 'Significant Other', href: '/products/woman' },
           ],
         },
       ],
@@ -94,14 +93,14 @@ const header = {
       featured: [
         {
           name: 'New Arrivals',
-          href: '#',
+          href: '/products/man',
           imageSrc:
             'https://tailwindcss.com/plus-assets/img/ecommerce-images/product-page-04-detail-product-shot-01.jpg',
           imageAlt: 'Drawstring top with elastic loop closure and textured interior padding.',
         },
         {
           name: 'Artwork Tees',
-          href: '#',
+          href: '/products/man',
           imageSrc:
             'https://tailwindcss.com/plus-assets/img/ecommerce-images/category-page-02-image-card-06.jpg',
           imageAlt:
@@ -113,43 +112,43 @@ const header = {
           id: 'clothing',
           name: 'Clothing',
           items: [
-            { name: 'Tops', href: '#' },
-            { name: 'Pants', href: '#' },
-            { name: 'Sweaters', href: '#' },
-            { name: 'T-Shirts', href: '#' },
-            { name: 'Jackets', href: '#' },
-            { name: 'Activewear', href: '#' },
-            { name: 'Browse All', href: '#' },
+            { name: 'Tops', href: '/products/man' },
+            { name: 'Pants', href: '/products/man' },
+            { name: 'Sweaters', href: '/products/man' },
+            { name: 'T-Shirts', href: '/products/man' },
+            { name: 'Jackets', href: '/products/man' },
+            { name: 'Activewear', href: '/products/man' },
+            { name: 'Browse All', href: '/products/man' },
           ],
         },
         {
           id: 'accessories',
           name: 'Accessories',
           items: [
-            { name: 'Watches', href: '#' },
-            { name: 'Wallets', href: '#' },
-            { name: 'Bags', href: '#' },
-            { name: 'Sunglasses', href: '#' },
-            { name: 'Hats', href: '#' },
-            { name: 'Belts', href: '#' },
+            { name: 'Watches', href: '/products/man' },
+            { name: 'Wallets', href: '/products/man' },
+            { name: 'Bags', href: '/products/man' },
+            { name: 'Sunglasses', href: '/products/man' },
+            { name: 'Hats', href: '/products/man' },
+            { name: 'Belts', href: '/products/man' },
           ],
         },
         {
           id: 'brands',
           name: 'Brands',
           items: [
-            { name: 'Re-Arranged', href: '#' },
-            { name: 'Counterfeit', href: '#' },
-            { name: 'Full Nelson', href: '#' },
-            { name: 'My Way', href: '#' },
+            { name: 'Re-Arranged', href: '/products/man' },
+            { name: 'Counterfeit', href: '/products/man' },
+            { name: 'Full Nelson', href: '/products/man' },
+            { name: 'My Way', href: '/products/man' },
           ],
         },
       ],
     },
   ],
   pages: [
-    { name: 'Company', href: '#' },
-    { name: 'Stores', href: '#' },
+    { name: 'Company', href: '/company' },
+    { name: 'Blogs', href: '/blogs' },
   ],
 };
 
@@ -202,22 +201,15 @@ export default function Header() {
                     <div className="grid grid-cols-2 gap-x-4">
                       {category.featured.map((item) => (
                         <div key={item.name} className="group relative text-sm">
-                          {/*<img*/}
-                          {/*  alt={item.imageAlt}*/}
-                          {/*  src={item.imageSrc}*/}
-                          {/*  className="aspect-square w-full rounded-lg bg-gray-100 object-cover group-hover:opacity-75"*/}
-                          {/*/>*/}
-                          <Image
-                            src={item.imageSrc}
+                          <img
                             alt={item.imageAlt}
-                            width={500}
-                            height={500}
+                            src={item.imageSrc}
                             className="aspect-square w-full rounded-lg bg-gray-100 object-cover group-hover:opacity-75"
                           />
-                          <a href={item.href} className="mt-6 block font-medium text-gray-900">
+                          <Link href={item.href} className="mt-6 block font-medium text-gray-900">
                             <span aria-hidden="true" className="absolute inset-0 z-10" />
                             {item.name}
-                          </a>
+                          </Link>
                           <p aria-hidden="true" className="mt-1">
                             Shop now
                           </p>
@@ -239,9 +231,6 @@ export default function Header() {
                         >
                           {section.items.map((item) => (
                             <li key={item.name} className="flow-root">
-                              {/*<a href={item.href} className="-m-2 block p-2 text-gray-500">*/}
-                              {/*  {item.name}*/}
-                              {/*</a>*/}
                               <Link href={item.href} className="-m-2 block p-2 text-gray-500">
                                 {item.name}
                               </Link>
@@ -258,23 +247,23 @@ export default function Header() {
             <div className="space-y-6 border-t border-gray-200 px-4 py-6">
               {header.pages.map((page) => (
                 <div key={page.name} className="flow-root">
-                  <a href={page.href} className="-m-2 block p-2 font-medium text-gray-900">
+                  <Link href={page.href} className="-m-2 block p-2 font-medium text-gray-900">
                     {page.name}
-                  </a>
+                  </Link>
                 </div>
               ))}
             </div>
 
             <div className="space-y-6 border-t border-gray-200 px-4 py-6">
               <div className="flow-root">
-                <a href="#" className="-m-2 block p-2 font-medium text-gray-900">
+                <Link href="sign-in" className="-m-2 block p-2 font-medium text-gray-900">
                   Sign in
-                </a>
+                </Link>
               </div>
               <div className="flow-root">
-                <a href="#" className="-m-2 block p-2 font-medium text-gray-900">
+                <Link href="sign-up" className="-m-2 block p-2 font-medium text-gray-900">
                   Create account
-                </a>
+                </Link>
               </div>
             </div>
           </DialogPanel>
@@ -303,15 +292,7 @@ export default function Header() {
               <div className="ml-2 flex lg:ml-0">
                 <Link href={'/'}>
                   <span className="sr-only">Your Company</span>
-                  <Image
-                    src={'/logo.svg'}
-                    alt={'Logo'}
-                    width={0}
-                    height={64}
-                    className="h-16 w-auto"
-                    priority
-                  />
-                  {/*<img alt="" src="/logo.svg" className="h-16 w-auto" />*/}
+                  <img alt="" src="/logo.svg" className="h-16 w-auto" />
                 </Link>
               </div>
 
@@ -361,9 +342,6 @@ export default function Header() {
                                           <Link href={item.href} className="hover:text-gray-800">
                                             {item.name}
                                           </Link>
-                                          {/*<a href={item.href} className="hover:text-gray-800">*/}
-                                          {/*  {item.name}*/}
-                                          {/*</a>*/}
                                         </li>
                                       ))}
                                     </ul>
@@ -378,25 +356,11 @@ export default function Header() {
                                     className="group relative text-base sm:text-sm cursor-pointer"
                                     onClick={() => router.push('/')}
                                   >
-                                    {/*<img*/}
-                                    {/*  alt={item.imageAlt}*/}
-                                    {/*  src={item.imageSrc}*/}
-                                    {/*  className="aspect-square w-full rounded-lg bg-gray-100 object-cover group-hover:opacity-75"*/}
-                                    {/*/>*/}
-                                    <Image
-                                      src={item.imageSrc}
+                                    <img
                                       alt={item.imageAlt}
-                                      width={500}
-                                      height={500}
+                                      src={item.imageSrc}
                                       className="aspect-square w-full rounded-lg bg-gray-100 object-cover group-hover:opacity-75"
                                     />
-                                    {/*<a
-                                      href={item.href}
-                                      className="mt-6 block font-medium text-gray-900"
-                                    >
-                                      <span aria-hidden="true" className="absolute inset-0 z-10" />
-                                      {item.name}
-                                    </a>*/}
                                     <p className="mt-6 block font-medium text-gray-900">
                                       {item.name}
                                     </p>
@@ -426,26 +390,26 @@ export default function Header() {
 
               <div className="ml-auto flex items-center">
                 <div className="hidden lg:flex lg:flex-1 lg:items-center lg:justify-end lg:space-x-6">
-                  <a href="#" className="text-sm font-medium text-gray-700 hover:text-gray-800">
+                  <Link href="/sign-in" className="text-sm font-medium text-gray-700 hover:text-gray-800">
                     Sign in
-                  </a>
+                  </Link>
                   <span aria-hidden="true" className="h-6 w-px bg-gray-200" />
-                  <a href="#" className="text-sm font-medium text-gray-700 hover:text-gray-800">
+                  <Link href="/sign-up" className="text-sm font-medium text-gray-700 hover:text-gray-800">
                     Create account
-                  </a>
+                  </Link>
                 </div>
 
                 {/* Search */}
                 <div className="flex lg:ml-6">
-                  <a href="#" className="p-2 text-gray-400 hover:text-gray-500">
+                  <Link href="#" className="p-2 text-gray-400 hover:text-gray-500">
                     <span className="sr-only">Search</span>
                     <MagnifyingGlassIcon aria-hidden="true" className="size-6" />
-                  </a>
+                  </Link>
                 </div>
 
                 {/* Cart */}
                 <div className="ml-4 flow-root lg:ml-6">
-                  <a href="#" className="group -m-2 flex items-center p-2">
+                  <Link href="#" className="group -m-2 flex items-center p-2">
                     <ShoppingBagIcon
                       aria-hidden="true"
                       className="size-6 shrink-0 text-gray-400 group-hover:text-gray-500"
@@ -454,7 +418,7 @@ export default function Header() {
                       0
                     </span>
                     <span className="sr-only">items in cart, view bag</span>
-                  </a>
+                  </Link>
                 </div>
               </div>
             </div>
