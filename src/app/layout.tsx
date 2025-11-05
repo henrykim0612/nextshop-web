@@ -1,5 +1,5 @@
 import type { Metadata } from 'next';
-import { Roboto } from 'next/font/google';
+import { Cinzel, Roboto } from 'next/font/google';
 import './globals.css';
 import Container from '@/components/layouts/Container';
 
@@ -7,6 +7,13 @@ const roboto = Roboto({
   subsets: ['latin'],
   weight: ['400', '500', '700'],
   variable: '--font-roboto',
+  display: 'swap',
+});
+
+const cinzel = Cinzel({
+  subsets: ['latin'],
+  weight: ['400', '500', '700'],
+  variable: '--font-cinzel',
   display: 'swap',
 });
 
@@ -22,7 +29,7 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en">
-    <body className={`${roboto.variable} antialiased`}>
+    <body className={`${roboto.variable} ${cinzel.variable} antialiased`}>
     <Container>
       {children}
     </Container>

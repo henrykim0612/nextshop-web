@@ -2,7 +2,7 @@ import type { PostProps } from '@/types/post';
 import Link from 'next/link';
 
 async function fetchPosts() {
-  const response = await fetch(`${process.env.API_BASE_URL}/posts`, { cache: 'no-store' });
+  const response = await fetch(`${process.env.NEXT_PUBLIC_API_BASE_URL}/posts`, { cache: 'no-store' });
   const result: PostProps[] = await response.json();
   return result;
 }
@@ -30,7 +30,7 @@ export default async function Posts() {
             </div>
             <div className="group relative grow">
               <h3
-                className="mt-3 text-lg/6 font-semibold text-gray-900 group-hover:text-gray-600">
+                className="mt-3 text-lg/6 font-semibold text-gray-900 group-hover:text-gray-600 font-cinzel">
                 <Link href={`/blogs/${post.id}`}>
                   <span className="absolute inset-0" />
                   {post.title}
@@ -57,5 +57,4 @@ export default async function Posts() {
       ))}
     </div>
   );
-
 }

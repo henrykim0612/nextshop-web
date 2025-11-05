@@ -29,11 +29,9 @@ export default function PostLoading() {
                 <p className="text-gray-600 "><Skeleton width={100} /></p>
               </div>
             </div>
-
           </div>
         </article>
       ))}
     </div>
-
   );
 }

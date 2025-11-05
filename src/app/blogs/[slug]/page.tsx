@@ -11,7 +11,7 @@ export async function generateStaticParams() {
 }
 
 async function fetchPost(id: number) {
-  const response = await fetch(`${process.env.API_BASE_URL}/posts/${id}`);
+  const response = await fetch(`${process.env.NEXT_PUBLIC_API_BASE_URL}/posts/${id}`);
   const result: PostProps = await response.json();
   return result;
 }
