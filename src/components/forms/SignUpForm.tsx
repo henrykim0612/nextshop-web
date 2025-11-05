@@ -5,6 +5,7 @@ import { ExclamationCircleIcon } from '@heroicons/react/16/solid';
 import clsx from 'clsx';
 import type { Gender, VisitRoute } from '@/types/user';
 import Link from 'next/link';
+import SignUpSubmitButton from '@/components/buttons/SignUpSubmitButton';
 
 const genders: { id: Gender, name: string, checked: boolean }[] =
   [{
@@ -42,7 +43,6 @@ export default function SignUpForm() {
     password: '',
     name: '',
     phone: '',
-    gender: genders.find(item => item.checked)!.id,
   });
 
   const [errors, setErrors] = useState({
@@ -92,24 +92,6 @@ export default function SignUpForm() {
     return !Object.values(newErrors).some((error) => error !== '');
   };
 
-  const handleSubmit = (e: FormEvent<HTMLFormElement>) => {
-    e.preventDefault();
-
-    const data = new FormData(e.currentTarget);
-    // console.log(data.get('gender'));
-    // console.log(data.getAll('visit-route'));
-
-    // for (const [key, value] of data.entries()) {
-    //   console.log(`${key}:`, value);
-    // }
-
-
-    if (validateForm()) {
-      console.log('회원가입 데이터:', formData);
-      alert('회원가입이 완료되었습니다!');
-    }
-  };
-
   const handleChange = (e: ChangeEvent<HTMLInputElement>) => {
     const { name, value, type } = e.target;
     if (type === 'radio') {
@@ -127,6 +109,32 @@ export default function SignUpForm() {
     }
   };
 
+  const handleSubmit = async (data: FormData) => {
+    console.log(data);
+    console.log(data.get('gender'));
+    console.log(data.getAll('visit-route'));
+
+    // for (const [key, value] of data.entries()) {
+    //   console.log(`${key}:`, value);
+    // }
+
+    // if (validateForm()) {
+    //   alert('회원가입이 완료되었습니다!');
+    // }
+
+
+    // const response = await fetch(`${process.env.API_BASE_URL}/sign-up`);
+
+    // 처리하고 있는 모습을 보여주기 위해 강제로 1.5초 딜레이
+    // await new Promise((res) => setTimeout(res, 1500));
+
+    // 화원 가입 처리
+
+
+    throw new Error('Not implemented');
+
+  };
+
   return (
     <div className="min-h-screen flex items-center justify-center py-12 px-4 sm:px-6 lg:px-8">
       <div className="max-w-md w-full space-y-8">
@@ -138,7 +146,7 @@ export default function SignUpForm() {
             Start by creating an account
           </p>
         </div>
-        <form className="mt-8 space-y-6" onSubmit={handleSubmit}>
+        <form className="mt-8 space-y-6" action={handleSubmit}>
           <div className="space-y-4">
             <div>
               <label htmlFor="email" className="block text-sm font-medium text-gray-700 mb-1">
@@ -341,12 +349,7 @@ export default function SignUpForm() {
           </fieldset>
 
           <div>
-            <button
-              type="submit"
-              className="group relative w-full flex justify-center py-2 px-4 border border-transparent text-sm font-medium rounded-md text-white bg-indigo-600 hover:bg-indigo-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500 transition-colors"
-            >
-              SIGN UP
-            </button>
+            <SignUpSubmitButton />
           </div>
 
           <div className="text-center">

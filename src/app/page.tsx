@@ -1,4 +1,5 @@
 import Link from 'next/link';
+import DefaultLayout from '@/components/layouts/DefaultLayout';
 
 const favorites = [
   {
@@ -30,7 +31,7 @@ const favorites = [
 
 export default function Home() {
   return (
-    <>
+    <DefaultLayout>
       {/* Hero section */}
       <section className="pt-8 pb-80 sm:pt-16 sm:pb-32 lg:pt-20 lg:pb-36 relative overflow-hidden">
         <div className="relative mx-auto max-w-7xl px-4 sm:static sm:px-6 lg:px-8">
@@ -382,6 +383,6 @@ export default function Home() {
           </div>
         </div>
       </section>
-    </>
+    </DefaultLayout>
   );
 }

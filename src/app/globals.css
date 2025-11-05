@@ -24,6 +24,10 @@ body {
     font-family: var(--font-roboto), Arial, Helvetica, sans-serif;
 }
 
+button {
+    cursor: pointer;
+}
+
 /* tailwind가 제공하는 클래스명 외에 내가 추가적으로 정의하고 싶다면 @utility 를 사용할 수 있습니다. */
 @utility my-custom-text-color {
     color: #00008b;
