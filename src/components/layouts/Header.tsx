@@ -15,14 +15,11 @@ import {
   TabPanel,
   TabPanels,
 } from '@headlessui/react';
-import {
-  Bars3Icon,
-  MagnifyingGlassIcon,
-  ShoppingBagIcon,
-  XMarkIcon,
-} from '@heroicons/react/24/outline';
+import { Bars3Icon, ShoppingBagIcon, UserIcon, XMarkIcon } from '@heroicons/react/24/outline';
 import Link from 'next/link';
 import { useRouter } from 'next/navigation';
+import type { UserProps } from '@/types/user';
+import CartBadge from '@/components/badges/CartBadge';
 
 const header = {
   categories: [
@@ -152,7 +149,12 @@ const header = {
   ],
 };
 
-export default function Header() {
+
+interface Props {
+  loggedUser: UserProps | null;
+}
+
+export default function Header({ loggedUser }: Props) {
   const [openMobileMenu, setOpenMobileMenu] = useState(false);
   const router = useRouter();
 
@@ -253,19 +255,6 @@ export default function Header() {
                 </div>
               ))}
             </div>
-
-            <div className="space-y-6 border-t border-gray-200 px-4 py-6">
-              <div className="flow-root">
-                <Link href="sign-in" className="-m-2 block p-2 font-medium text-gray-900">
-                  Sign in
-                </Link>
-              </div>
-              <div className="flow-root">
-                <Link href="sign-up" className="-m-2 block p-2 font-medium text-gray-900">
-                  Create account
-                </Link>
-              </div>
-            </div>
           </DialogPanel>
         </div>
       </Dialog>
@@ -315,7 +304,6 @@ export default function Header() {
                         transition
                         className="absolute inset-x-0 top-full z-20 w-full bg-white text-sm text-gray-500 transition data-closed:opacity-0 data-enter:duration-200 data-enter:ease-out data-leave:duration-150 data-leave:ease-in"
                       >
-                        {/* Presentational element used to render the bottom shadow, if we put the shadow on the actual panel it pokes out the top, so we use this shorter element to hide the top of the shadow */}
                         <div
                           aria-hidden="true"
                           className="absolute inset-0 top-1/2 bg-white shadow-sm"
@@ -389,37 +377,35 @@ export default function Header() {
               </PopoverGroup>
 
               <div className="ml-auto flex items-center">
-                <div className="hidden lg:flex lg:flex-1 lg:items-center lg:justify-end lg:space-x-6">
-                  <Link href="/sign-in" className="text-sm font-medium text-gray-700 hover:text-gray-800">
-                    Sign in
-                  </Link>
-                  <span aria-hidden="true" className="h-6 w-px bg-gray-200" />
-                  <Link href="/sign-up" className="text-sm font-medium text-gray-700 hover:text-gray-800">
-                    Create account
-                  </Link>
-                </div>
-
-                {/* Search */}
-                <div className="flex lg:ml-6">
-                  <Link href="#" className="p-2 text-gray-400 hover:text-gray-500">
-                    <span className="sr-only">Search</span>
-                    <MagnifyingGlassIcon aria-hidden="true" className="size-6" />
-                  </Link>
-                </div>
-
-                {/* Cart */}
-                <div className="ml-4 flow-root lg:ml-6">
-                  <Link href="#" className="group -m-2 flex items-center p-2">
-                    <ShoppingBagIcon
-                      aria-hidden="true"
-                      className="size-6 shrink-0 text-gray-400 group-hover:text-gray-500"
-                    />
-                    <span className="mx-1 text-sm font-medium text-gray-700 group-hover:text-gray-800">
-                      0
-                    </span>
-                    <span className="sr-only">items in cart, view bag</span>
-                  </Link>
-                </div>
+                {loggedUser
+                  ? (
+                    <div className="flex flex-1 items-center justify-end mr-1">
+                      <Link href="#" className="group flex items-center p-2">
+                        <UserIcon
+                          aria-hidden="true"
+                          className="size-6 shrink-0 text-gray-400 group-hover:text-gray-500"
+                        />
+                      </Link>
+                      <Link href="#" className="group flex items-center p-2">
+                        <ShoppingBagIcon
+                          aria-hidden="true"
+                          className="size-6 shrink-0 text-gray-400 group-hover:text-gray-500"
+                        />
+                        <CartBadge count={loggedUser.cartCount} />
+                      </Link>
+                    </div>
+                  )
+                  : (
+                    <div className="flex flex-1 items-center justify-end space-x-3 mr-1">
+                      <Link href="/sign-in" className="text-sm font-medium text-gray-700 hover:text-gray-800">
+                        Sign in
+                      </Link>
+                      <span aria-hidden="true" className="h-6 w-px bg-gray-200" />
+                      <Link href="/sign-up" className="text-sm font-medium text-gray-700 hover:text-gray-800">
+                        Create account
+                      </Link>
+                    </div>
+                  )}
               </div>
             </div>
           </div>

@@ -6,7 +6,7 @@ export default function PlainLayout({
 
   return (
     <>
-      <main className={'bg-gray-50'}>
+      <main className={'bg-gray-50 h-screen'}>
         {children}
       </main>
     </>

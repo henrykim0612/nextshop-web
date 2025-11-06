@@ -1,4 +1,9 @@
 import DefaultLayout from '@/components/layouts/DefaultLayout';
+import type { Metadata } from 'next';
+
+export const metadata: Metadata = {
+  title: 'NextShop | Company',
+};
 
 export default function Layout({
                                  children,
