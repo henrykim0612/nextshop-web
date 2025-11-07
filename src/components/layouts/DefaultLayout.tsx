@@ -1,6 +1,6 @@
 import Header from '@/components/layouts/Header';
 import Footer from '@/components/layouts/Footer';
-import { fetchLoggedUser } from '@/helper/CookieHelper';
+import { fetchLoggedUser } from '@/fetchers/user-fetcher.server';
 
 export default async function DefaultLayout({
                                               children,
@@ -8,7 +8,6 @@ export default async function DefaultLayout({
   children: React.ReactNode;
 }>) {
   const loggedUser = await fetchLoggedUser();
-  console.log(loggedUser);
   return (
     <>
       <Header loggedUser={loggedUser} />

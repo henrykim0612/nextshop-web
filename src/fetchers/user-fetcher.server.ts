@@ -1,4 +1,3 @@
-// 주의: 이곳에 존재하는 함수들은 서버 컴포넌트에서 호출할 목적으로 사용되므로, 클라이언트 컴포넌트에서는 사용이 불가합니다.
 import { cookies } from 'next/headers';
 import { UserProps } from '@/types/user';
 
