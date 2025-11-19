@@ -2,6 +2,7 @@ import { cookies } from 'next/headers';
 import type { CartOverviewProps } from '@/types/user';
 import CartOverview from '@/components/overviews/CartOverview';
 import CartEmptyState from '@/components/emptyStates/CartEmptyState';
+import { redirect } from 'next/navigation';
 
 export async function fetchCartOverview() {
   const cookieStore = await cookies();
@@ -19,7 +20,8 @@ export async function fetchCartOverview() {
 
 export default async function Page() {
   const cartOverview = await fetchCartOverview();
-  if (!cartOverview || cartOverview.length === 0) return <CartEmptyState />;
+  if (!cartOverview) redirect('/sign-in');
+  if (cartOverview.length === 0) return <CartEmptyState />;
   return (
     <div className="bg-white">
       <div className="mx-auto max-w-2xl px-4 pt-16 pb-24 sm:px-6 lg:max-w-7xl lg:px-8">

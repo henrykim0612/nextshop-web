@@ -5,6 +5,11 @@ import {
   Dialog,
   DialogBackdrop,
   DialogPanel,
+  Menu,
+  MenuButton,
+  MenuItem,
+  MenuItems,
+  MenuSeparator,
   Popover,
   PopoverButton,
   PopoverGroup,
@@ -20,6 +25,7 @@ import Link from 'next/link';
 import { useRouter } from 'next/navigation';
 import type { UserProps } from '@/types/user';
 import CartBadge from '@/components/badges/CartBadge';
+
 
 const header = {
   categories: [
@@ -158,6 +164,7 @@ export default function Header({ loggedUser }: Props) {
   const [openMobileMenu, setOpenMobileMenu] = useState(false);
   const router = useRouter();
 
+  console.log(loggedUser);
   return (
     <div className="bg-white">
       {/* Mobile menu */}
@@ -377,15 +384,67 @@ export default function Header({ loggedUser }: Props) {
               </PopoverGroup>
 
               <div className="ml-auto flex items-center">
+                <Menu as="div" className="relative inline-block">
+                  <MenuButton
+                    className="inline-flex w-full justify-center gap-x-1.5 rounded-md bg-white px-3 py-2 text-sm font-semibold text-gray-900 shadow-xs inset-ring-1 inset-ring-gray-300 hover:bg-gray-50 dark:bg-white/10 dark:text-white dark:shadow-none dark:inset-ring-white/5 dark:hover:bg-white/20">
+                    Options
+                  </MenuButton>
+
+                  <MenuItems
+                    transition
+                    className="absolute right-0 z-10 mt-2 w-56 origin-top-right rounded-md bg-white shadow-lg outline-1 outline-black/5 transition data-closed:scale-95 data-closed:transform data-closed:opacity-0 data-enter:duration-100 data-enter:ease-out data-leave:duration-75 data-leave:ease-in dark:bg-gray-800 dark:shadow-none dark:-outline-offset-1 dark:outline-white/10"
+                  >
+                    <div className="py-1">
+                      <MenuItem>
+                        <a
+                          href="#"
+                          className="block px-4 py-2 text-sm text-gray-700 data-focus:bg-gray-100 data-focus:text-gray-900 data-focus:outline-hidden dark:text-gray-300 dark:data-focus:bg-white/5 dark:data-focus:text-white"
+                        >
+                          Account settings
+                        </a>
+                      </MenuItem>
+                      <MenuItem>
+                        <a
+                          href="#"
+                          className="block px-4 py-2 text-sm text-gray-700 data-focus:bg-gray-100 data-focus:text-gray-900 data-focus:outline-hidden dark:text-gray-300 dark:data-focus:bg-white/5 dark:data-focus:text-white"
+                        >
+                          Support
+                        </a>
+                      </MenuItem>
+                      <MenuItem>
+                        <a
+                          href="#"
+                          className="block px-4 py-2 text-sm text-gray-700 data-focus:bg-gray-100 data-focus:text-gray-900 data-focus:outline-hidden dark:text-gray-300 dark:data-focus:bg-white/5 dark:data-focus:text-white"
+                        >
+                          License
+                        </a>
+                      </MenuItem>
+                      <MenuSeparator className="my-1 h-px bg-gray-200" />
+                      <form action="#" method="POST">
+                        <MenuItem>
+                          <button
+                            type="submit"
+                            className="block w-full px-4 py-2 text-left text-sm text-gray-700 data-focus:bg-gray-100 data-focus:text-gray-900 data-focus:outline-hidden dark:text-gray-300 dark:data-focus:bg-white/5 dark:data-focus:text-white"
+                          >
+                            Sign out
+                          </button>
+                        </MenuItem>
+                      </form>
+                    </div>
+                  </MenuItems>
+                </Menu>
+
                 {loggedUser
                   ? (
                     <div className="flex flex-1 items-center justify-end mr-1">
-                      <Link href="#" className="group flex items-center p-2">
+                      <Link href="/profile" className="group flex items-center p-2">
                         <UserIcon
                           aria-hidden="true"
                           className="size-6 shrink-0 text-gray-400 group-hover:text-gray-500"
                         />
                       </Link>
+
+
                       <Link href="/cart" className="group flex items-center p-2">
                         <ShoppingBagIcon
                           aria-hidden="true"
