@@ -1,6 +1,6 @@
 import { cookies } from 'next/headers';
 import type { CartOverviewProps } from '@/types/user';
-import CartForm from '@/components/forms/CartForm';
+import CartOverview from '@/components/overviews/CartOverview';
 import CartEmptyState from '@/components/emptyStates/CartEmptyState';
 
 export async function fetchCartOverview() {
@@ -17,15 +17,14 @@ export async function fetchCartOverview() {
   return result;
 }
 
-
 export default async function Page() {
   const cartOverview = await fetchCartOverview();
-  if (!cartOverview) return <CartEmptyState />;
+  if (!cartOverview || cartOverview.length === 0) return <CartEmptyState />;
   return (
     <div className="bg-white">
       <div className="mx-auto max-w-2xl px-4 pt-16 pb-24 sm:px-6 lg:max-w-7xl lg:px-8">
         <h1 className="text-3xl font-bold tracking-tight text-gray-900 sm:text-4xl">Shopping Cart</h1>
-        <CartForm cartOverview={cartOverview} />
+        <CartOverview cartOverview={cartOverview} />
       </div>
     </div>
   );
