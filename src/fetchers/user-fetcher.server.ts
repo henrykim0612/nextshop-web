@@ -3,7 +3,7 @@ import { UserProps } from '@/types/user';
 
 export async function fetchLoggedUser() {
   const cookieStore = await cookies();
-  const jwtCookie = cookieStore.get(`${process.env.JWT_COOKIE_NAME}`);
+  const jwtCookie = cookieStore.get(`${process.env.NEXT_PUBLIC_JWT_COOKIE_NAME}`);
   if (!jwtCookie) return null;
 
   const response = await fetch(`${process.env.NEXT_PUBLIC_API_BASE_URL}/users/me`, {

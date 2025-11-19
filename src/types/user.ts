@@ -12,3 +12,19 @@ export interface UserProps {
   updatedAt: Date;
   authorities: string[];
 }
+
+export interface CartOverviewProps {
+  id: number,
+  cartId: number,
+  productSizeId: number,
+  quantity: number,
+  createdAt: Date;
+  productId: number,
+  categoryId: number,
+  productName: string,
+  price: number,
+  imageUrl: string,
+  altText: string,
+  color: string,
+  size: string,
+}

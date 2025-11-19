@@ -2,16 +2,14 @@
 
 import { SetStateAction } from 'react';
 import { Dialog, DialogBackdrop, DialogPanel, DialogTitle } from '@headlessui/react';
-import { CheckIcon } from '@heroicons/react/24/outline';
-import { useRouter } from 'next/navigation';
+import { ShoppingCartIcon } from '@heroicons/react/24/outline';
 
 interface Props {
   open: boolean;
   setOpen: (value: SetStateAction<boolean>) => void;
 }
 
-export default function SignUpSuccessModal({ open, setOpen }: Props) {
-  const router = useRouter();
+export default function CartAddedModal({ open, setOpen }: Props) {
   return (
     <Dialog open={open} onClose={setOpen} className="relative z-10">
       <DialogBackdrop
@@ -27,15 +25,15 @@ export default function SignUpSuccessModal({ open, setOpen }: Props) {
             <div>
               <div
                 className="mx-auto flex size-12 items-center justify-center rounded-full bg-green-100 ">
-                <CheckIcon aria-hidden="true" className="size-6 text-green-600 " />
+                <ShoppingCartIcon aria-hidden="true" className="size-6 text-green-600 " />
               </div>
               <div className="mt-3 text-center sm:mt-5">
                 <DialogTitle as="h3" className="text-base font-semibold text-gray-900 ">
-                  Congratulations!
+                  Added to cart
                 </DialogTitle>
                 <div className="mt-2">
                   <p className="text-sm text-gray-500 ">
-                    Your account has been created.
+                    Your item was successfully added.
                   </p>
                 </div>
               </div>
@@ -43,10 +41,10 @@ export default function SignUpSuccessModal({ open, setOpen }: Props) {
             <div className="mt-5 sm:mt-6">
               <button
                 type="button"
-                onClick={() => router.push('/sign-in')}
+                onClick={() => setOpen(false)}
                 className="inline-flex w-full justify-center rounded-md bg-indigo-600 px-3 py-2 text-sm font-semibold text-white shadow-xs hover:bg-indigo-500 focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-indigo-600"
               >
-                Go to Sign-in Page
+                Continue shopping
               </button>
             </div>
           </DialogPanel>

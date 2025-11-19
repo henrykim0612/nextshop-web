@@ -29,14 +29,14 @@ const header = {
       featured: [
         {
           name: 'New Arrivals',
-          href: '/products?category=1',
+          href: '/products/woman',
           imageSrc:
             'https://tailwindcss.com/plus-assets/img/ecommerce-images/mega-menu-category-01.jpg',
           imageAlt: 'Models sitting back to back, wearing Basic Tee in black and bone.',
         },
         {
           name: 'Basic Tees',
-          href: '/products?category=1',
+          href: '/products/woman',
           imageSrc:
             'https://tailwindcss.com/plus-assets/img/ecommerce-images/mega-menu-category-02.jpg',
           imageAlt:
@@ -48,38 +48,38 @@ const header = {
           id: 'clothing',
           name: 'Clothing',
           items: [
-            { name: 'Tops', href: '/products?category=1' },
-            { name: 'Dresses', href: '/products?category=1' },
-            { name: 'Pants', href: '/products?category=1' },
-            { name: 'Denim', href: '/products?category=1' },
-            { name: 'Sweaters', href: '/products?category=1' },
-            { name: 'T-Shirts', href: '/products?category=1' },
-            { name: 'Jackets', href: '/products?category=1' },
-            { name: 'Activewear', href: '/products?category=1' },
-            { name: 'Browse All', href: '/products?category=1' },
+            { name: 'Tops', href: '/products/woman' },
+            { name: 'Dresses', href: '/products/woman' },
+            { name: 'Pants', href: '/products/woman' },
+            { name: 'Denim', href: '/products/woman' },
+            { name: 'Sweaters', href: '/products/woman' },
+            { name: 'T-Shirts', href: '/products/woman' },
+            { name: 'Jackets', href: '/products/woman' },
+            { name: 'Activewear', href: '/products/woman' },
+            { name: 'Browse All', href: '/products/woman' },
           ],
         },
         {
           id: 'accessories',
           name: 'Accessories',
           items: [
-            { name: 'Watches', href: '/products?category=1' },
-            { name: 'Wallets', href: '/products?category=1' },
-            { name: 'Bags', href: '/products?category=1' },
-            { name: 'Sunglasses', href: '/products?category=1' },
-            { name: 'Hats', href: '/products?category=1' },
-            { name: 'Belts', href: '/products?category=1' },
+            { name: 'Watches', href: '/products/woman' },
+            { name: 'Wallets', href: '/products/woman' },
+            { name: 'Bags', href: '/products/woman' },
+            { name: 'Sunglasses', href: '/products/woman' },
+            { name: 'Hats', href: '/products/woman' },
+            { name: 'Belts', href: '/products/woman' },
           ],
         },
         {
           id: 'brands',
           name: 'Brands',
           items: [
-            { name: 'Full Nelson', href: '/products?category=1' },
-            { name: 'My Way', href: '/products?category=1' },
-            { name: 'Re-Arranged', href: '/products?category=1' },
-            { name: 'Counterfeit', href: '/products?category=1' },
-            { name: 'Significant Other', href: '/products?category=1' },
+            { name: 'Full Nelson', href: '/products/woman' },
+            { name: 'My Way', href: '/products/woman' },
+            { name: 'Re-Arranged', href: '/products/woman' },
+            { name: 'Counterfeit', href: '/products/woman' },
+            { name: 'Significant Other', href: '/products/woman' },
           ],
         },
       ],
@@ -90,14 +90,14 @@ const header = {
       featured: [
         {
           name: 'New Arrivals',
-          href: '/products?category=2',
+          href: '/products/man',
           imageSrc:
             'https://tailwindcss.com/plus-assets/img/ecommerce-images/product-page-04-detail-product-shot-01.jpg',
           imageAlt: 'Drawstring top with elastic loop closure and textured interior padding.',
         },
         {
           name: 'Artwork Tees',
-          href: '/products?category=2',
+          href: '/products/man',
           imageSrc:
             'https://tailwindcss.com/plus-assets/img/ecommerce-images/category-page-02-image-card-06.jpg',
           imageAlt:
@@ -109,35 +109,35 @@ const header = {
           id: 'clothing',
           name: 'Clothing',
           items: [
-            { name: 'Tops', href: '/products?category=2' },
-            { name: 'Pants', href: '/products?category=2' },
-            { name: 'Sweaters', href: '/products?category=2' },
-            { name: 'T-Shirts', href: '/products?category=2' },
-            { name: 'Jackets', href: '/products?category=2' },
-            { name: 'Activewear', href: '/products?category=2' },
-            { name: 'Browse All', href: '/products?category=2' },
+            { name: 'Tops', href: '/products/man' },
+            { name: 'Pants', href: '/products/man' },
+            { name: 'Sweaters', href: '/products/man' },
+            { name: 'T-Shirts', href: '/products/man' },
+            { name: 'Jackets', href: '/products/man' },
+            { name: 'Activewear', href: '/products/man' },
+            { name: 'Browse All', href: '/products/man' },
           ],
         },
         {
           id: 'accessories',
           name: 'Accessories',
           items: [
-            { name: 'Watches', href: '/products?category=2' },
-            { name: 'Wallets', href: '/products?category=2' },
-            { name: 'Bags', href: '/products?category=2' },
-            { name: 'Sunglasses', href: '/products?category=2' },
-            { name: 'Hats', href: '/products?category=2' },
-            { name: 'Belts', href: '/products?category=2' },
+            { name: 'Watches', href: '/products/man' },
+            { name: 'Wallets', href: '/products/man' },
+            { name: 'Bags', href: '/products/man' },
+            { name: 'Sunglasses', href: '/products/man' },
+            { name: 'Hats', href: '/products/man' },
+            { name: 'Belts', href: '/products/man' },
           ],
         },
         {
           id: 'brands',
           name: 'Brands',
           items: [
-            { name: 'Re-Arranged', href: '/products?category=2' },
-            { name: 'Counterfeit', href: '/products?category=2' },
-            { name: 'Full Nelson', href: '/products?category=2' },
-            { name: 'My Way', href: '/products?category=2' },
+            { name: 'Re-Arranged', href: '/products/man' },
+            { name: 'Counterfeit', href: '/products/man' },
+            { name: 'Full Nelson', href: '/products/man' },
+            { name: 'My Way', href: '/products/man' },
           ],
         },
       ],
@@ -386,7 +386,7 @@ export default function Header({ loggedUser }: Props) {
                           className="size-6 shrink-0 text-gray-400 group-hover:text-gray-500"
                         />
                       </Link>
-                      <Link href="#" className="group flex items-center p-2">
+                      <Link href="/cart" className="group flex items-center p-2">
                         <ShoppingBagIcon
                           aria-hidden="true"
                           className="size-6 shrink-0 text-gray-400 group-hover:text-gray-500"

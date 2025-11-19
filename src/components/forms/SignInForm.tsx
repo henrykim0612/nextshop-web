@@ -3,10 +3,13 @@
 import Link from 'next/link';
 import { useState } from 'react';
 import ErrorAlert from '@/components/alerts/ErrorAlert';
-import { useRouter } from 'next/navigation';
+import { useRouter, useSearchParams } from 'next/navigation';
 
 export default function SignInForm() {
   const router = useRouter();
+  const searchParams = useSearchParams();
+  const redirect = searchParams.get('redirect');
+
   const [errorMessage, setErrorMessage] = useState('');
   const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
@@ -34,7 +37,8 @@ export default function SignInForm() {
       setErrorMessage(errorData.message);
     } else {
       setErrorMessage('');
-      router.push('/');
+      // router.push('/');
+      router.replace(redirect ?? '/');
     }
   };
 

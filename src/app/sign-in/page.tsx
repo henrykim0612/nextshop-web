@@ -1,5 +1,6 @@
 import Link from 'next/link';
 import SignInForm from '@/components/forms/SignInForm';
+import { Suspense } from 'react';
 
 export default function Page() {
   return (
@@ -27,7 +28,9 @@ export default function Page() {
           </div>
           <div className="mt-10">
             <div>
-              <SignInForm />
+              <Suspense fallback={'Loading...'}>
+                <SignInForm />
+              </Suspense>
             </div>
 
             <div className="mt-10">
