@@ -39,3 +39,9 @@ export interface ProductOverviewProps {
   images: string[],
   options: ProductOverviewOptionProps[],
 }
+
+export interface SimpleProductProps {
+  id: number,
+  categoryId: number,
+  name: string,
+}

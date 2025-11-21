@@ -1,7 +1,7 @@
 import { cookies } from 'next/headers';
 import { UserProps } from '@/types/user';
 
-export async function fetchLoggedUser() {
+export const fetchLoggedUser = async () => {
   const cookieStore = await cookies();
   const jwtCookie = cookieStore.get(`${process.env.NEXT_PUBLIC_JWT_COOKIE_NAME}`);
   if (!jwtCookie) return null;
@@ -13,4 +13,4 @@ export async function fetchLoggedUser() {
   if (!response.ok) return null;
   const result: UserProps = await response.json();
   return result;
-}
+};

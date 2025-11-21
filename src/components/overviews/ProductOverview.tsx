@@ -8,7 +8,7 @@ import { useMemo, useState } from 'react';
 import ProductOverviewLoading from '@/components/loadings/ProductOverviewLoading';
 import Link from 'next/link';
 import { usePathname, useRouter, useSearchParams } from 'next/navigation';
-import { getJwt, makeAuthorizationHeader } from '@/helpers/jwtHelper';
+import { getJwt, makeAuthorizationHeader } from '@/helpers/jwtHelper.client';
 import CartAddedModal from '@/components/modals/CartAddedModal';
 
 interface Props {

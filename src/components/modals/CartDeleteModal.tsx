@@ -4,7 +4,7 @@ import { SetStateAction } from 'react';
 import { Dialog, DialogBackdrop, DialogPanel, DialogTitle } from '@headlessui/react';
 import { ExclamationTriangleIcon } from '@heroicons/react/24/outline';
 import { useRouter } from 'next/navigation';
-import { getJwt, makeAuthorizationHeader } from '@/helpers/jwtHelper';
+import { getJwt, makeAuthorizationHeader } from '@/helpers/jwtHelper.client';
 
 interface Props {
   selectedCartItemId: number | null;

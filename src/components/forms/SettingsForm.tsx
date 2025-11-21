@@ -22,7 +22,7 @@ const navigation = [
   { name: 'Team members', href: '#', icon: UsersIcon, current: false },
 ];
 
-export default function ProfileForm({ loggedUser }: Props) {
+export default function SettingsForm({ loggedUser }: Props) {
   return (
     <div className="mx-auto max-w-7xl lg:flex lg:gap-x-16 lg:px-8 h-screen">
       <aside
